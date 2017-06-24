@@ -1,0 +1,24 @@
+.tableStyle {
+    width: 100%
+}
+
+.tableStyle > thead > tr > th {
+    line-height: 51px;
+    text-align: center;
+    border-bottom: 2px solid #dadada;
+    background: #f8f8f9;
+    color: #444;
+    padding: 0 5px;
+}
+
+.tableStyle > tbody > tr > td {
+    line-height: 45px;
+    text-align: center;
+    vertical-align: top;
+    color: #777;
+    padding: 0 5px;
+}
+
+.padding60 {
+    padding: 60px;
+}

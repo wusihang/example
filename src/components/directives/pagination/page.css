@@ -1,0 +1,52 @@
+.marginLeft10 {
+    margin-left: 10px;
+}
+
+.floatRight {
+    float: right;
+}
+
+.pagingSelect {
+    height: 30px;
+    min-width: 50px;
+}
+
+.pagingBar {
+    margin-top: 20px;
+    color: #666;
+    font-size: 12px;
+    height: 30px;
+    line-height: 26px;
+}
+
+.pagingBtn {
+}
+
+.pagingBtn a {
+    color: #777;
+    min-width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+    border: 1px solid #e3e4e8;
+    padding: 0 2px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.pagingBtn a.cur, .pagingBtn a:hover {
+    background: #fe895e;
+    color: #fff;
+    border-color: #fe895e;
+}
+
+.highLight {
+    color: #fe895e;
+}
+
+.noRecord {
+    display: block;
+    height: 360px;
+    width: 100%;
+}

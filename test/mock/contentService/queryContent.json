@@ -1,0 +1,25 @@
+{
+  "method": [
+    "GET",
+    "POST"
+  ],
+  "data": {
+    "contentList": [
+      {
+        "contentCode": 111111,
+        "contentName": "one piece",
+        "description": "海贼王",
+        "author": "尾田",
+        "createTime": "1999-01-09"
+      },
+      {
+        "contentCode": 22222,
+        "contentName": "A song of ice and fire",
+        "description": "冰与火之歌",
+        "author": "马丁",
+        "createTime": "1999-06-09"
+      }
+    ],
+    "totalCount": 129
+  }
+}

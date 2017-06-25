@@ -12,8 +12,8 @@ const glob = require('glob');
 
 module.exports = (env)=> {
     let entries = {};
-    for (let i in config.jsPath) {
-        entries[config.jsPath[i]] = path.resolve(__dirname, "src/view/" + config.jsPath[i]);
+    for (let i in config) {
+        entries[config[i]] = path.resolve(__dirname, "src/view/" + config[i]);
     }
     let additionPlugins = [
         new CleanWebpackPlugin(["dist/" + (env.production ? "release" : "dev")], {
@@ -100,7 +100,14 @@ module.exports = (env)=> {
         devServer: {
             contentBase: path.join(__dirname, "dist/dev"),
             compress: false,
-            port: 9000
+            port: 9000,
+            proxy: {
+                "/rest": {
+                    target: "http://127.0.0.1:3000",
+                    changeOrigin: true,
+                    pathRewrite: {"^/rest": ""}
+                }
+            }
         }
     };
 };

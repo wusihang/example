@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>这是A页面</title>
-    <meta http-equiv="Content-Type"content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div ng-app="aIndexApp">
@@ -9,25 +9,26 @@
         <table class="tableStyle">
             <thead>
             <tr>
-                <th width="20%">head1</th>
-                <th width="20%">head2</th>
-                <th width="20%">head3</th>
-                <th width="20%">head4</th>
-                <th width="20%">head5</th>
+                <th width="20%">contentCode</th>
+                <th width="20%">contentName</th>
+                <th width="20%">description</th>
+                <th width="20%">author</th>
+                <th width="20%">createTime</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="result in results track by $index">
-                <td ng-bind="'item'+result"></td>
-                <td ng-bind="'item'+result"></td>
-                <td ng-bind="'item'+result"></td>
-                <td ng-bind="'item'+result"></td>
-                <td ng-bind="'item'+result"></td>
+            <tr ng-repeat="content in contents track by $index">
+                <td ng-bind="content.contentCode"></td>
+                <td ng-bind="content.contentName"></td>
+                <td ng-bind="content.description"></td>
+                <td ng-bind="content.author"></td>
+                <td ng-bind="content.createTime"></td>
             </tr>
             </tbody>
         </table>
 
-        <ng:pagination callback="paging(data)" total-count="{{totalCount}}" page-size="pageSize" current-page="currentPage"
+        <ng:pagination callback="paging(data)" total-count="{{totalCount}}" page-size="pageSize"
+                       current-page="currentPage"
                        page-size-option="5,10,20,50" paging-btn-num="11"></ng:pagination>
     </div>
 </div>

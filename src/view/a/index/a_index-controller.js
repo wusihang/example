@@ -5,37 +5,23 @@ import angular from "angular";
 import "babel-polyfill";
 import "pagination/page";
 //使用数组构造可以有效避免混淆js后引起错误
-angular.module("aIndexApp", ['paging.directive']).controller("aIndexController", ["$scope", "$rootScope", ($scope, $rootScope)=> {
+angular.module("aIndexApp", ['paging.directive']).controller("aIndexController", ["$scope", "$rootScope", "$http", ($scope, $rootScope, $http)=> {
     $scope.search = ()=>console.log("searching...");
+    $scope.paging = data=> {
+        $http({
+            method: 'GET',
+            url: '/rest/contentService/queryContent'
+        }).then(response=> {
+            if (response.data) {
+                $scope.contents = response.data.contentList;
+                $scope.totalCount = response.data.totalCount;
+            }
 
-
-    function* loadUI() {
-        console.log("showUI");
-        yield (()=>console.log("loadData"))();
-        console.log("hideUI");
-    }
-
-    var loader  = loadUI();
-    loader.next();
-    loader.next();
-
-
-    $scope.totalCount = 1001;
-    resultChanged();
-    $scope.counter = 0;
-    $scope.paging = function (data) {
-        $scope.pageSize = $scope.pageSize || 5;
-        data = data || {pageSize: $scope.pageSize, currentPage: $scope.currentPage || 1};
-        $scope.results = $scope.allResult.filter(function (item) {
-            return item >= (data.currentPage - 1) * data.pageSize && item < data.currentPage * data.pageSize;
+        }, response=> {
+            console.log("error:" + response.status);
         });
     };
-    $scope.paging();
-    function resultChanged() {
-        $scope.allResult = [];
-        for (var i = 0; i < $scope.totalCount; i++) {
-            $scope.allResult.push(i);
-        }
-    }
-
+    $scope.pageSize = $scope.pageSize || 5;
+    $scope.currentPage = $scope.currentPage || 1;
+    $scope.paging({pageSize: $scope.pageSize, currentPage: $scope.currentPage});
 }]);

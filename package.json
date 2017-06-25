@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack --env.dev",
     "release": "webpack --env.production",
-    "bower": "gulp copyBower",
     "start": "node_modules/.bin/webpack-dev-server --env.dev",
     "mock": "node serve.js"
   },
